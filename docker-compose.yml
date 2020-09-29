@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+    - ./:/usr/src/app:delegated
+    ports:
+    - '8080:8080'
+    command: npm start
+
+networks:
+  crowdflower-network:
+    external: true

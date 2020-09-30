@@ -1,6 +1,6 @@
 /*!
- * Start Bootstrap - Freelancer v1.1.0 (http://startbootstrap.com/template-overviews/freelancer)
- * Copyright 2013-2016 Start Bootstrap
+ * Start Bootstrap - Ivan Personal portafolio v1.0.0 (http://startbootstrap.com/template-overviews/freelancer)
+ * Copyright 2013-2020 Ivan Garcia
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
@@ -505,4 +505,22 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .modal-backdrop {
   opacity: 0;
   display: none;
+}
+.portfolio-preview {
+  width: 100%;
+  text-align: center;
+}
+.portfolio-preview .portfolio-preview-image-background {
+  width: 185px;
+  height: 185px;
+  margin: 10.3% 10%;
+  border-radius: 100%;
+  padding: 2.3%;
+  display: inline-block;
+  text-align: center;
+}
+.portfolio-preview .portfolio-preview-image-background .portfolio-preview-image {
+  width: 60%;
+  display: inline-block;
+  margin: 15% 10%;
 }

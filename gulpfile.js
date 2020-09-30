@@ -17,9 +17,6 @@ var banner = ['/*!\n',
     ''
 ].join('');
 
-// Default task
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
-
 // Less task to compile the less files and add the banner
 gulp.task('less', function() {
     return gulp.src('less/freelancer.less')
@@ -80,7 +77,7 @@ gulp.task('fontawesome', function() {
 })
 
 // Copy all third party dependencies from node_modules to vendor directory
-gulp.task('copy', ['bootstrap', 'jquery', 'fontawesome']);
+gulp.task('copy', gulp.series('bootstrap', 'jquery', 'fontawesome'));
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -92,7 +89,7 @@ gulp.task('browserSync', function() {
 })
 
 // Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
+gulp.task('dev', gulp.series('browserSync', 'less', 'minify-css', 'minify-js'), function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
@@ -100,3 +97,6 @@ gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() 
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
 });
+
+// Default task
+gulp.task('default', gulp.series('less', 'minify-css', 'minify-js', 'copy'));
